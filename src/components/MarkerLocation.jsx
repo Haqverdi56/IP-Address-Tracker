@@ -1,6 +1,15 @@
 
 import React, { useEffect } from "react";
 import { Marker, useMap } from "react-leaflet";
+import L from "leaflet";
+import location from "../assets/loca.svg"
+
+const myIcon = new L.Icon({
+  iconUrl: location,
+  iconRetinaUrl: location,
+  popupAnchor: [-0, -0],
+  iconSize: [25, 35],
+});
 
 function MarkerLocation({ location }) {
   const map = useMap();
@@ -11,7 +20,7 @@ function MarkerLocation({ location }) {
   }, [map, location]);
 
   return (
-    <Marker position={location}>
+    <Marker icon={myIcon} position={location}>
     </Marker>
   );
 }
